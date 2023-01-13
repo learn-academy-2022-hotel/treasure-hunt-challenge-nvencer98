@@ -15,13 +15,19 @@ const App = () => {
     "?"
   ])
 
+const handleGamePlay = (clickedSquare) => {
+ let updateBoard = [...board]
+ updateBoard[clickedSquare] = "🌴"
+ setBoard(updateBoard)
+}
+
   return (
     <>
       <h1>Treasure Hunt Game</h1>
       <div className="gameBoard">
-        {board.map((square) => {
+        {board.map((square,index) => {
           return (
-            <Square square={square}/>
+            <Square square={square} index={index} handleGamePlay={handleGamePlay}/>
           )
         })}
       </div>
